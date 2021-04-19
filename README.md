@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @jacobfelger
 - 👀 I’m an economics major / computer science minor at Washington University in St. Louis
-- 🌱 I’m currently learning applications of clean code
+- 🌱 I’m currently learning applications of clean code management
 - 💞️ I’m looking to collaborate on any web dev projects 
 - 📫 Email: 
      Personal: Jacobrfelger@gmail.com
