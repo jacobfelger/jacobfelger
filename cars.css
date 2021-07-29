@@ -1,0 +1,278 @@
+* {
+  font-family: "Courier New";
+}
+
+head {
+  /* stuff */
+}
+
+body {
+  background-image: linear-gradient(#811b05, #808080);
+}
+
+h1 {
+  font-size: 45px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 27px;
+  text-align: center;
+}
+
+.container {
+  margin-top: 18px;
+  display: grid;
+}
+
+.sectionOne {
+  display: grid;
+  grid-gap: 18px 18px;
+  grid-template-columns: 22.5% 50% 22.5%;
+}
+
+.searchbar {
+  border-color: black;
+  border-style: groove;
+  background-color: lightgrey;
+  height: 27px;
+  border-radius: 9px;
+}
+
+#searchButton {
+  background-color: black;
+  border-radius: 3px;
+  border-color: lightgrey;
+  height: 27px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#button1, #button2 {
+  background-color: black;
+  border-radius: 3px;
+  border-color: lightgrey;
+  height: 27px;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#search {
+  border-color: black;
+  border-style: hidden;
+  border-radius: 9px;
+  height: 24px;
+  text-align: center;
+  font-size: 18px;
+  padding-right: 306px;
+}
+
+#search:hover {
+  border-color: black;
+  border-style: hidden;
+  border-radius: 9px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+.sectionTwo {
+  display: grid;
+  grid-gap: 36px 36px;
+  border-style: double;
+  border-radius: 9px;
+  border-color: lightgrey;
+  border-width: 18px;
+  grid-template-columns: 30% 30% 30%;
+}
+
+.sectionTwoTitles {
+  color: lightgrey;
+  text-align: center;
+}
+
+.luxuryCars {
+  /* stuff */
+}
+
+#luxuryCarsButton {
+  height: 180px;
+  width: 360px;
+  border-style: groove;
+  border-color: lightgrey;
+  border-width: 3px;
+  border-radius: 18px;
+  background-image: url("redFerrari.png");
+}
+
+#luxuryCarsButton:hover {
+  cursor: pointer;
+}
+
+#typePopUp {
+  background-color: #808080;
+}
+
+#affordableCarsButton {
+  height: 180px;
+  width: 360px;
+  border-style: groove;
+  border-color: lightgrey;
+  border-width: 3px;
+  border-radius: 18px;
+  background-image: url("redHonda.png");
+}
+
+#affordableCarsButton:hover {
+  cursor: pointer;
+}
+
+.newCars {
+  /* stuff */
+}
+
+#newCarsButton {
+  height: 180px;
+  width: 360px;
+  border-style: groove;
+  border-color: lightgrey;
+  border-width: 3px;
+  border-radius: 18px;
+  background-image: url("RedTesla.png");
+}
+
+#newCarsButton:hover {
+  cursor: pointer;
+}
+
+.sectionThree {
+  display: grid;
+  grid-gap: 36px 36px;
+  border-style: double;
+  border-radius: 9px;
+  border-color: lightgrey;
+  border-width: 18px;
+  grid-template-columns: 50% 50%;
+}
+
+.reviewTitles {
+  color: lightgrey;
+  text-align: center;
+}
+
+#customerReviews {
+  /* stuff */
+}
+
+#expertReviews {
+  /* stuff */
+}
+
+.sectionFourTitle {
+  display: grid;
+  color: lightgrey;
+  font-size: 27px;
+  font-weight: bold;
+  text-decoration: underline;
+  text-align: center;
+  background-color: lightgrey;
+  color: #811b05;
+  height: 30px;
+  border-radius: 9px;
+  border-style: groove;
+  padding-bottom: 27px;
+  border-color: #811b05;
+  grid-template-columns: 100% 0% 0%;
+}
+
+.sectionFour {
+  display: grid;
+  grid-gap: 36px 36px;
+  border-style: double;
+  border-radius: 9px;
+  border-color: lightgrey;
+  border-width: 18px;
+  grid-template-columns: 30% 30% 30%;
+}
+
+.topAwardedBrands {
+  /* stuff */
+}
+
+.awardsTitle {
+  color: lightgrey;
+}
+
+.awardsTitleIndividual {
+  color: lightgrey;
+  text-align: center;
+}
+
+#toyotaButton {
+  background-image: url("toyotaLogo.png");
+  height: 180px;
+  width: 360px;
+  border-style: groove;
+  border-color: lightgrey;
+  border-width: 3px;
+  border-radius: 18px;
+  overflow-x: scroll;
+  cursor: pointer;
+}
+
+#subaruButton {
+  background-image: url("subaruLogo.png");
+  height: 180px;
+  width: 360px;
+  border-style: groove;
+  border-color: lightgrey;
+  border-width: 3px;
+  border-radius: 18px;
+  overflow-x: scroll;
+  cursor: pointer;
+}
+
+#hondaButton {
+  background-image: url("hondaLogo.png");
+  height: 180px;
+  width: 360px;
+  border-style: groove;
+  border-color: lightgrey;
+  border-width: 3px;
+  border-radius: 18px;
+  overflow-x: scroll;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1080px) {
+  .sectionOne {
+    display: grid;
+    grid-gap: 18px 18px;
+    grid-template-columns: 0% 50% 0%;
+    margin-bottom: 36px;
+  }
+
+  .sectionTwo {
+    overflow-x: scroll;
+    grid-gap: 236px 236px;
+  }
+
+  .sectionFour {
+    overflow-x: scroll;
+    grid-gap: 236px 236px;
+  }
+
+  h1 {
+    text-align: left;
+    margin-left: 18px;
+  }
+
+  h2 {
+    text-align: left;
+    margin-left: 18px;
+  }
+}

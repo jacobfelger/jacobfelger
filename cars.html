@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Jacob Felger">
+
+    <title>Final Project</title>
+    <link rel="stylesheet" type="text/css" href="cars.css">
+    <script type="text/javascript" src="cars.js"></script>
+</head>
+
+<body>
+  <h1>
+    Car Search
+  </h1>
+  <h2>
+    "Keeping you informed"
+  </h2>
+
+  <div class="container">
+  <div class="sectionOne">
+  <div></div>
+  <div class="searchbar">
+    <input type="text" id="search" placeholder="Search The Book!"></input>
+    <button id="searchButton">GO</button>
+  </div>
+  <div></div>
+  </div>
+
+  <div class="sectionTwo">
+  <div class="luxuryCars">
+    <p class="sectionTwoTitles">
+      Luxury
+      </p>
+    <button onclick="luxury()" id="luxuryCarsButton"></button>
+    <!-- stuff -->
+  </div>
+
+  <div class="affordableCars">
+    <p class="sectionTwoTitles">
+      Affordable
+      </p>
+    <button onclick="affordable()" id="affordableCarsButton"></button>
+    <!-- stuff -->
+  </div>
+
+  <div class="newcars">
+    <p class="sectionTwoTitles">
+      New
+      </p>
+    <button onclick="newCars()" id="newCarsButton"></button>
+    <!-- stuff -->
+  </div>
+  </div>
+
+  <div class="sectionThree">
+    <div  id="customerReviews">
+      <button  id="button1" onclick="customerReviews()" class="customerTitles">
+        Customer Reviews
+      </button>
+    </div>
+    <div  id="expertReviews">
+      <button id="button2" onclick="expertReviews()" class="expertTitles">
+        Expert Reviews
+      </button>
+    </div>
+  </div>
+
+<div class="sectionFourTitleGrid">
+  <div class="sectionFourTitle">
+  <p> Most Awarded Brands </p>
+  </div>
+</div>
+
+  <div class="sectionFour">
+
+  <div class="toyotaAwards">
+      <p class="awardsTitleIndividual">
+        Toyota
+        </p>
+      <button id="toyotaButton"></button>
+  </div>
+  <div class="subaruAwards">
+      <p class="awardsTitleIndividual">
+        Subaru
+        </p>
+      <button id="subaruButton"></button>
+  </div>
+  <div class="hondaAwards">
+      <p class="awardsTitleIndividual">
+        Honda
+        </p>
+      <button id="hondaButton"></button>
+  </div>
+
+  </div>
+
+</body>
+
+</html>
