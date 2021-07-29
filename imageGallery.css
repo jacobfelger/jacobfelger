@@ -1,0 +1,112 @@
+body {
+  background-color: rgb(35, 35, 35);
+  color: lightgrey;
+  font-family: serif;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  color: rgb(35, 35, 35);
+  background-color: rgb(192, 192, 192);
+  padding-bottom: 9px;
+  padding-top: 9px;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+a:hover {
+  color: rgb(35, 35, 35);
+}
+
+.statlinks {
+  color: lightgrey;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 30.67%);
+  grid-gap: 18px;
+  margin: auto;
+  padding: 18px;
+  margin-bottom: 36px;
+}
+
+.reg {
+  width: 270px;
+}
+
+.reg img {
+  width: 100%;
+}
+
+.reg .buttons {
+  display: none;
+}
+
+.expanded {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.expanded img {
+  width: 100%;
+  height: 760px;
+}
+
+.expanded .buttons {
+  display: center;
+  z-index: 3;
+  border-style: solid;
+  border-color: rgb(35, 35, 35);
+  color: lightgrey;
+  background-color: rgb(35, 35, 35);
+}
+
+.expanded .close {
+  margin-left: 33%;
+  margin-right: 33%;
+}
+
+.layout:hover {
+  border-style: double;
+  border-radius: 25px;
+  border-color: lightgrey;
+  background-color: rgb(192, 192, 192);
+  color: black;
+}
+
+.layout {
+  border-style: solid;
+  border-radius: 5px;
+  border-color: lightgrey;
+  padding: 18px;
+  margin: auto;
+  padding-bottom: 18px;
+  text-align: center;
+  height: 100%;
+}
+
+@media only screen and (max-width: 1020px) {
+  .container {
+    display: grid;
+    grid-template-columns: repeat(2, 45.5%);
+    grid-gap: 18px;
+    margin: auto;
+    padding: 18px;
+    margin-bottom: 36px;
+  }
+
+  @media only screen and (max-width: 720px) {
+    .container {
+      display: center;
+      grid-template-columns: repeat(1, 90%);
+      grid-gap: 18px;
+      padding: 18px;
+      margin-bottom: 36px;
+      margin-top: 36px;
+    }
