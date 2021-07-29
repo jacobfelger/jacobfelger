@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Gamedev Canvas Workshop</title>
+
+    <style>
+    	* {
+         padding: 0;
+         margin: 0;
+       }
+    	canvas {
+        background-image: url("defaultPicTwo.png");
+        border-style: double;
+        border-color: lightgray;
+        display: block;
+        margin: 0 auto;
+      }
+      .gameContainer p {
+        color:#191970;
+      }
+      .returnToHome a {
+        border-radius: 10px;
+        border-style: double;
+        border-color: #191970;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: #0077be;
+        background-color: lightgray;
+      }
+      #clockDiv {
+        background: gray;
+        margin: auto;
+        color: white;
+        font-size: 15px;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+        padding: 3px;
+        right: 10;
+        top: 10;
+        position: absolute;
+        /* position:fixed; */
+      }
+      h1 {
+        background-image: url("defaultPicTwo.png");
+        -webkit- animation-duration: 10s;
+        animation-duration: 10s;
+        margin: 0px;
+        color: lightgray;
+        border-style: solid;
+        border-radius: 10px;
+        font-size: 72px;
+        padding-top: 40%;
+        height: 10%;
+        text-align: center;
+        opacity: 0.5;
+      }
+
+
+    </style>
+
+</head>
+<body>
+  <h1>
+    <p>Brick Breaker</p>
+
+    <div id="clockDiv">
+
+    </div>
+  </h1>
+  <button class="returnToHome">
+    <a href="projectMainFile.html">Back To Home</a>
+  </button>
+
+<div class="gameContainer" id="gameContainerDiv">
+<select name="gameMode" class="gameMode" id="gameModeSelector">
+  <option value="random">Random</option>
+  <option value="easy">Easy</option>
+  <option value="medium">Medium</option>
+  <option value="hard">Hard</option>
+</select>
+<canvas id="myCanvas" width="680" height="320">
+<!-- game play -->
+</canvas>
+</div>
+
+<script>
+
+var gameMode = document.querySelector("#gameModeSelector");
+var gameModeTracker = 0;
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+var ballRadius = 9.5;
+var x = canvas.width/2;
+var y = canvas.height-30;
+var dx = 2;
+var dy = -2;
+var paddleHeight = 10;
+var paddleWidth = 75;
+var paddleX = (canvas.width-paddleWidth)/2;
+var rightPressed = false;
+var leftPressed = false;
+
+var brickWidth = 75;
+var brickHeight = 20;
+var brickPadding = 10;
+var brickOffsetTop = 30;
+var brickOffsetLeft = 30;
+var score = 0;
+var lives = 3;
+var brickRowCount = 1 + (Math.round((Math.random() * 7)));
+var brickColumnCount = 1 + (Math.round((Math.random() * 3)));
+
+// selectable game mode instead of random
+// if (gameMode.selectedIndex == 0) {
+//   var rand = Math.random();
+//   if (rand > .67) {
+//     gameameModeTracker = 3;
+//   }
+//   else if (rand > .33 && rand <=.67){
+//     gameModeTracker = 2;
+//   }
+//   else {
+//     gameModeTracker = 1;
+//   }
+// else if (gameMode.selectedIndex == 1){
+//   gameModeTracker = 1;
+// }
+// else if (gameMode.selectedIndex == 2){
+//   gameModeTracker = 2;
+// }
+// else {
+//   gameameModeTracker = 3;
+// }
+//
+// if (gameModeTracker == 1){
+//   var brickRowCount = 5;
+//   var brickColumnCount = 3;
+// }
+// else if (gameModeTracker == 2){
+//   var brickRowCount = 8;
+//   var brickColumnCount = 4;
+// }
+// else {
+//   var brickRowCount = 10;
+//   var brickColumnCount = 5;
+// }
+
+var bricks = [];
+for(var c=0; c<brickColumnCount; c++) {
+  bricks[c] = [];
+  for(var r=0; r<brickRowCount; r++) {
+    bricks[c][r] = { x: 0, y: 0, status: 1 };
+  }
+}
+
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
+document.addEventListener("mousemove", mouseMoveHandler, false);
+
+function keyDownHandler(e) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = true;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = true;
+    }
+}
+// PAUSE FUNCTION
+// function pauseGame() {
+//     gamePaused = !gamePaused; // toggle the gamePaused value (false <-> true)
+//     if (!gamePaused) loop(); // restart loop
+// }
+
+function keyUpHandler(e) {
+    if(e.key == "Right" || e.key == "ArrowRight") {
+        rightPressed = false;
+    }
+    else if(e.key == "Left" || e.key == "ArrowLeft") {
+        leftPressed = false;
+    }
+}
+
+function mouseMoveHandler(e) {
+  var relativeX = e.clientX - canvas.offsetLeft;
+  if(relativeX > 0 && relativeX < canvas.width) {
+    paddleX = relativeX - paddleWidth/2;
+  }
+}
+function collisionDetection() {
+  for(var c=0; c<brickColumnCount; c++) {
+    for(var r=0; r<brickRowCount; r++) {
+      var b = bricks[c][r];
+      if(b.status == 1) {
+        if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+          dy = -dy;
+          b.status = 0;
+          score++;
+          if(score == brickRowCount*brickColumnCount) {
+            alert("YOU WIN, CONGRATS!");
+            document.location.reload();
+          }
+        }
+      }
+    }
+  }
+}
+
+function drawBall() {
+  ctx.beginPath();
+  ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+  ctx.fillStyle = "#0095DD";
+  ctx.fill();
+  ctx.closePath();
+}
+function drawPaddle() {
+  ctx.beginPath();
+  ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+  ctx.fillStyle = "#0095DD";
+  ctx.fill();
+  ctx.closePath();
+}
+function drawBricks() {
+  for(var c=0; c<brickColumnCount; c++) {
+    for(var r=0; r<brickRowCount; r++) {
+      if(bricks[c][r].status == 1) {
+        var brickX = (r*(brickWidth+brickPadding))+brickOffsetLeft;
+        var brickY = (c*(brickHeight+brickPadding))+brickOffsetTop;
+        bricks[c][r].x = brickX;
+        bricks[c][r].y = brickY;
+        ctx.beginPath();
+        ctx.rect(brickX, brickY, brickWidth, brickHeight);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+      }
+    }
+  }
+}
+function drawScore() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Score: "+score, 8, 20);
+}
+function drawLives() {
+  ctx.font = "16px Arial";
+  ctx.fillStyle = "#0095DD";
+  ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+}
+
+function draw() {
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBricks();
+  drawBall();
+  drawPaddle();
+  drawScore();
+  drawLives();
+  collisionDetection();
+
+  if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+    dx = -dx;
+  }
+  if(y + dy < ballRadius) {
+    dy = -dy;
+  }
+  else if(y + dy > canvas.height-ballRadius) {
+    if(x > paddleX && x < paddleX + paddleWidth) {
+      dy = -dy;
+    }
+    else {
+      lives--;
+      if(!lives) {
+        alert("GAME OVER");
+        document.location.reload();
+      }
+      else {
+        x = canvas.width/2;
+        y = canvas.height-30;
+        dx = 3;
+        dy = -3;
+        paddleX = (canvas.width-paddleWidth)/2;
+      }
+    }
+  }
+
+  if(rightPressed && paddleX < canvas.width-paddleWidth) {
+    paddleX += 7;
+  }
+  else if(leftPressed && paddleX > 0) {
+    paddleX -= 7;
+  }
+
+  x += dx;
+  y += dy;
+  requestAnimationFrame(draw);
+
+
+}
+
+draw();
+
+//clock js
+var showCurrentTime = function() {
+  // display the string on the webpage
+  var clock = document.getElementById("clockDiv");
+  var currentTime = new Date();
+  var noon = 12;
+  var hours = currentTime.getHours();
+  var minutes = currentTime.getMinutes();
+  var seconds = currentTime.getSeconds();
+  var day = currentTime.getUTCDate();
+  var month = currentTime.getMonth();
+  var year = currentTime.getFullYear();
+  var meridian = "AM";
+  // Set year
+  // Set monthNames for outputting string month
+  var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  // Set day
+  // Set hours
+  if (hours >= noon) {
+    meridian = "PM";
+  }
+  if (hours > noon) {
+    hours = hours - 12;
+  }
+  // Set Minutes
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  // Set Seconds
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  // put together the string that displays the time
+  var clockTime = hours + ":" + minutes + ":" + seconds + " " + meridian + " " + monthNames[month] + "/" + day + "/" + year;
+  clock.innerText = clockTime;
+};
+//function updateClock()
+var updateClock = function() {
+  showCurrentTime();
+};
+//Set time interval for updateClock()
+var oneSecond = 1000;
+setInterval(updateClock, oneSecond);
+
+
+</script>
+
+</body>
+</html>
