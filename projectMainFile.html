@@ -1,0 +1,519 @@
+
+<!<!DOCTYPE html>
+
+  <html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+        border-color: lightgray;
+      }
+
+      h1 {
+        background-image: url("https://i.pinimg.com/originals/a1/40/6e/a1406e0736cea880d98ae62e9b927ef5.jpg");
+        -webkit- animation-duration: 10s;
+        animation-duration: 10s;
+        margin: 0px;
+        color: lightgray;
+        border-style: solid;
+        border-radius: 10px;
+        font-size: 72px;
+        padding-top: 40%;
+        height: 40%;
+        text-align: center;
+        opacity: 0.5;
+      }
+
+      h2 {
+        background: linear-gradient(#191970, #0077be, lightgray);
+        margin: 0px;
+        color: lightgray;
+        border-style: solid;
+        border-radius: 10px;
+        height: 15%;
+        opacity: 0.5;
+        text-align: center;
+      }
+
+      body {
+        background: lightgray;
+        margin: 0px;
+        border-style: solid;
+        border-radius: 10px;
+      }
+
+
+      #clockDiv {
+        background: gray;
+        margin: auto;
+        color: white;
+        font-size: 15px;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+        padding: 3px;
+        right: 10;
+        top: 10;
+        position: absolute;
+        /* position:fixed; */
+      }
+
+      /*  will be changed */
+      .otherElement {
+        background: gray;
+        margin: auto;
+        color: white;
+        font-size: 15px;
+        border-style: solid;
+        border-radius: 25px;
+        padding: 3px;
+      }
+
+      #contentSectionOne {
+        background: linear-gradient(#191970, lightgray);
+        margin: auto;
+        color: white;
+        font-size: 18px;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+      }
+
+      #contentSectionTwo {
+        background: linear-gradient(lightgray, black);
+        margin: auto;
+        color: white;
+        font-size: 18px;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+      }
+
+      #contentSectionThree {
+        background: linear-gradient(black, #191970);
+        margin: auto;
+        color: white;
+        font-size: 18px;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+      }
+
+      .headerBar {
+        display: flex;
+      }
+
+      .containerOne {
+        display: flex;
+        height: 100%;
+        width: 100%;
+      }
+
+
+      .containerTwo {
+        display: block;
+        /* For multiple elements in this section,
+      display: flex; */
+      }
+
+      .contentSection {
+        overflow: scroll;
+        display: block;
+        height: 90%;
+        margin: auto;
+        opacity: 0.5;
+      }
+      .contentSection img {
+        overflow: scroll;
+        height: 50%;
+        padding-top:40%;
+      }
+
+      .contentSection p {
+        padding-top: 15%;
+        text-align:center;
+      }
+      .contentSection:hover {
+        height: 100%;
+        opacity: 0.7;
+      }
+
+      .contentSectionContainerTwo {
+        background: url("defaultpicFour.png");
+        overflow: scroll;
+        display: block;
+        height: 90%;
+        width: 100%;
+        margin: auto;
+        opacity: 0.5;
+      }
+
+      #contentSectionOneContainterTwo {
+        margin: auto;
+        color: white;
+        font-size: 18px;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+        opacity: 0.45;
+      }
+
+
+      .footer {
+        display: flex;
+      }
+
+      .footerSection {
+        overflow: scroll;
+        display: block;
+        height: 25%;
+        width: 25%;
+        margin: auto;
+        border-color: #191970;
+        opacity: 0.25;
+      }
+
+      #footerSectionOne {
+        background-image: url("footerImage.png");
+        margin: auto;
+        color: white;
+        font-size: 18px;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+        width: 75%;
+      }
+
+      #footerSectionTwo {
+        background-image: url("footerImage.png");
+        margin: auto;
+        color: white;
+        font-size: 18px;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+      }
+
+      #footerSectionThree {
+        background-image: url("footerImage.png");
+        margin: auto;
+        color: white;
+        font-size: 18px;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+
+      }
+
+      #footerSectionfour {
+        background-image: url("footerImage.png");
+        margin: auto;
+        color: #0077be;
+        font-size: 18px;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+
+      }
+      #copyRight {
+        color: #0077be;
+      }
+
+      #footerIconOne {
+        height: 75px;
+        width: 75px;
+        color:  #4267B2;
+        opacity: 0.9;
+      }
+      #footerIconTwo {
+        height: 75px;
+        width: 75px;
+        color: #1DA1F2;
+        opacity: 0.9;
+      }
+      #footerIconThree {
+        height: 75px;
+        width: 75px;
+        color: yellow;
+        opacity: 0.9;
+      }
+      #footerIconFour {
+        height: 75px;
+        width: 75px;
+        color:  #8a3ab9;
+        opacity: 0.9;
+      }
+
+
+      #wave {
+        opacity: 1;
+        height: 33px;
+        width: 33px;
+        padding-top: 0px;
+        border-style: double;
+        border-color: lightgray, #191970;
+        border-radius: 20px;
+        border-width: thick;
+      }
+      #wave:hover {
+        opacity: 0.75;
+        height: 35px;
+        width: 35px;
+        padding-top: 0px;
+        border-style: solid;
+        border-color: lightgray;
+        border-radius: 20px;
+      }
+
+      .otherElement:hover {
+        border-style: solid;
+        border-color: #191970;
+        opacity: 0.5;
+      }
+
+      #otherElementOne {
+        background: gray;
+        margin: auto;
+        color: white;
+        font-size: 15px;
+        border-style: solid;
+        border-radius: 25px;
+        padding: 3px;
+      }
+
+      #otherElementTwo {
+        background: gray;
+        margin: auto;
+        color: white;
+        font-size: 15px;
+        border-style: solid;
+        border-radius: 25px;
+        padding: 3px;
+      }
+
+      #otherElementThree {
+        background: gray;
+        margin: auto;
+        color: white;
+        font-size: 15px;
+        border-style: solid;
+        border-radius: 25px;
+        padding: 3px;
+      }
+
+      #otherElementFour {
+        background: gray;
+        margin: auto;
+        color: white;
+        font-size: 15px;
+        border-style: solid;
+        border-radius: 25px;
+        padding: 3px;
+      }
+
+      .otherElement a {
+        display: none;
+      }
+
+      .otherElement p {
+        text-align: center;
+      }
+
+      .otherElement:hover a {
+        display: block;
+        text-align: center;
+        color: #191970;
+        height: 50px;
+        width: 100px;
+      }
+
+      #searchBar {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: gray;
+        margin: auto;
+        color: white;
+        border-style: solid;
+        border-radius: 10px;
+        display: block;
+        width: 45%
+      }
+
+      #searchBar input {
+        font-size: 15px;
+        width: 100%;
+      }
+
+      #searchInput {
+        background-color: lightgray;
+        border-radius: 10px;
+        border-color: gray;
+      }
+
+      #searchInput:focus {
+        background-color: #191970;
+        color: gray;
+      }
+
+      .footer {
+        text-align: center;
+      }
+
+
+    </style>
+    <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+  </head>
+
+  <body>
+    <h1>Project
+      <div id="searchBar">
+        <input type="text" id="searchInput" name="searchInputName" placeholder="Explore">
+      </div>
+      <div id="clockDiv">
+        <p> current time: </p>
+      </div>
+    </h1>
+
+
+    <div class="headerBar">
+      <h2>Ride the Wave <a href="aboutUs.html"><i class="em em-ocean" id="wave" aria-role="presentation"></i></a></h2>
+      <div class="otherElement" id="otherElementOne">
+        <p>Element</p>
+        <a href="elementOne.html">Sub Element</a>
+        <a href="elementTwo.html">Sub Element</a>
+        <a href="elementThree.html">Sub Element</a>
+      </div>
+
+      <div class="otherElement" id="otherElementTwo">
+        <p>Element</p>
+        <a href="elementFour.html">Sub Element</a>
+        <a href="elementFive.html">Sub Element</a>
+        <a href="elementSix.html">Sub Element</a>
+      </div>
+
+      <div class="otherElement" id="otherElementThree">
+        <p>Element</p>
+        <a href="elementSeven.html">Sub Element</a>
+        <a href="elementEight.html">Sub Element</a>
+        <a href="elementNine.html">Sub Element</a>
+      </div>
+
+      <div class="otherElement" id="otherElementFour">
+        <p>Element</p>
+        <a href="imageGallery.html">Image Gallery </a>
+        <a href="toDoList.html">To Do List </a>
+        <a href="cars.html">Car Search</a>
+
+      </div>
+
+  <div id="clockDiv">
+
+  </div>
+
+    </div>
+
+    <div class="containerOne">
+      <div class="contentSection" id="contentSectionOne">
+        <p> Content </p>
+        <a href="contentOne.html"><img src="defaultPicOne.png"></a>
+        <a href="contentOne.html"><p> Blurb Blurb Blurb Blurb Blurb Blurb Blurb Blurb Blurb </p></a>
+      </div>
+
+      <div class="contentSection" id="contentSectionTwo">
+        <p> Content </p>
+        <a href="contentTwo.html"> <img src="defaultPicTwo.png"></a>
+        <a href="contentTwo.html"><p> Blurb Blurb Blurb Blurb Blurb Blurb Blurb Blurb Blurb </p></a>
+      </div>
+
+      <div class="contentSection" id="contentSectionThree">
+        <p> Content </p>
+        <a href="contentThree.html"><img src="defaultPicThree.png"></a>
+        <a href="contentThree.html"><p> Blurb Blurb Blurb Blurb Blurb Blurb Blurb Blurb Blurb </p></a>
+      </div>
+    </div>
+
+    <div class="containerTwo">
+      <div class="contentSectionContainerTwo" id="contentSectionOneContainterTwo">
+        <a href="contentFour.html">Content</a>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="footerSection" id="footerSectionOne">
+        <p> Footer </p>
+      </div>
+      <div class="footerSection" id="footerSectionTwo">
+        <p> Footer </p>
+      </div>
+      <div class="footerSection" id="footerSectionThree">
+        <p> Footer </p>
+      </div>
+      <div class="footerSection" id="footerSectionFour">
+        <p> Footer </p>
+        <div class="col-lg-3 item social" id="copyRightSection">
+          <a href="https://www.facebook.com"><i class="icon ion-social-facebook" id="footerIconOne"></i></a>
+          <a href="https://twitter.com"><i class="icon ion-social-twitter" id="footerIconTwo"></i></a>
+          <a href="https://www.snapchat.com"><i class="icon ion-social-snapchat" id="footerIconThree"></i></a>
+          <a href="https://www.instagram.com"><i class="icon ion-social-instagram"id="footerIconFour"></i></a>
+          <p class="copyright">Company Name © 2018</p>
+        </div>
+      </div>
+
+    </footer>
+
+    <script>
+      var showCurrentTime = function() {
+        // display the string on the webpage
+        var clock = document.getElementById("clockDiv");
+        var currentTime = new Date();
+        var noon = 12;
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        var day = currentTime.getUTCDate();
+        var month = currentTime.getMonth();
+        var year = currentTime.getFullYear();
+        var meridian = "AM";
+        // Set year
+        // Set monthNames for outputting string month
+        var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        // Set day
+        day = day -1;
+        // Set hours
+        if (hours >= noon) {
+          meridian = "PM";
+        }
+        if (hours > noon) {
+          hours = hours - 12;
+        }
+        // Set Minutes
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+        // Set Seconds
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+        // put together the string that displays the time
+        var clockTime = hours + ":" + minutes + ":" + seconds + " " + meridian + " " + monthNames[month] + "/" + day + "/" + year;
+        clock.innerText = clockTime;
+      };
+      //function updateClock()
+      var updateClock = function() {
+        showCurrentTime();
+      };
+      //Set time interval for updateClock()
+      var oneSecond = 1000;
+      setInterval(updateClock, oneSecond);
+
+
+    </script>
+  </body> -->
+
+  </html>
